@@ -1,8 +1,3 @@
-import java.net.InetAddress;
-import java.net.URL;
-import static java.net.InetAddress.getLocalHost;
-
-
 void main() throws IOException {
     System.out.println("Map Collect");
     new Map_Collect();
@@ -40,4 +35,6 @@ void main() throws IOException {
     new BinarySearch1();
     System.out.println("Linear Search 1");
     new LinearSearch1();
+    System.out.println("Linked List VS ArrayList");
+    new LinkedListVSArrayList();
 }
