@@ -45,4 +45,6 @@ void main() throws IOException {
     new DynamicArrayMethod();
     System.out.println("Queue");
     new QueueMethod();
+    System.out.println("Priority Queue");
+    new PriorityQueueMethod();
 }
