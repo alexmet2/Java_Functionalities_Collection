@@ -35,6 +35,8 @@ void main() throws IOException {
     new BinarySearch1();
     System.out.println("Linear Search 1");
     new LinearSearch1();
+    System.out.println("LinkedList");
+    new LinkedListMethod();
     System.out.println("Linked List VS ArrayList");
     new LinkedListVSArrayList();
     System.out.println("Stack");
