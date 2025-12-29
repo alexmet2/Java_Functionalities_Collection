@@ -14,6 +14,8 @@ void main() throws IOException {
     InetAddress();
     System.out.println("InputStreamReader");
     InputStreamReader();
+    System.out.println("RandomStreamPrediction");
+    RandomStreamPrediction();
 }
 
 void Map_Collect(){
@@ -60,4 +62,10 @@ void InputStreamReader() throws IOException {
             System.out.println(selida);
         }
     }
+}
+
+void RandomStreamPrediction(){
+    Stream<Integer> rand = Stream.generate(()->(new Random()).nextInt(81));
+    System.out.println("The numbers you should play in the next Kino game is ");
+    rand.limit(5).forEach(System.out::println);
 }
