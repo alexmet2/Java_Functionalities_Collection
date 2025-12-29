@@ -18,14 +18,14 @@ void main() throws IOException {
     RandomStreamPrediction();
     System.out.println("Adjacency Lists");
     Adjacency_Lists();
+    System.out.println("User Input Recognition");
+    UserInputRecognition();
 }
-
 void Map_Collect(){
     List<Integer> l1 = Arrays.asList(1,2,3,4,5);
     List<Integer> l2 = l1.stream().map(x->x*x).toList();
     for(Integer i : l2) System.out.println(i);
 }
-
 void Reduce(){
     int[] ar = {1,2,3,4,5,6,7,8,9,10};
     int sum = 0;
@@ -38,12 +38,10 @@ void Reduce(){
     System.out.println(sum1);
     System.out.println(sum2);
 }
-
 void Parallel(){
     IntStream num = IntStream.range(1, 10);
     num.parallel().forEach(System.out::println);
 }
-
 void InetAddress() throws UnknownHostException, MalformedURLException {
     InetAddress address = getLocalHost();
     URL web = new URL("https://el-gr.facebook.com/");
@@ -54,7 +52,6 @@ void InetAddress() throws UnknownHostException, MalformedURLException {
     System.out.println("Query " + web.getAuthority());
     System.out.println(address.getHostAddress());
 }
-
 void InputStreamReader() throws IOException {
     URL webpage = new URL("https://el-gr.facebook.com/");
     InputStreamReader  inp = new InputStreamReader(webpage.openStream());
@@ -65,13 +62,11 @@ void InputStreamReader() throws IOException {
         }
     }
 }
-
 void RandomStreamPrediction(){
     Stream<Integer> rand = Stream.generate(()->(new Random()).nextInt(81));
     System.out.println("The numbers you should play in the next Kino game is ");
     rand.limit(5).forEach(System.out::println);
 }
-
 void Adjacency_Lists(){
     /*
         Adjacency List = An Array/ArrayAist of LinkedList
@@ -100,7 +95,6 @@ void Adjacency_Lists(){
     /* prints graph */
     graph.print();
 }
-
 static class Node {
 
     char data;
@@ -109,7 +103,6 @@ static class Node {
         this.data = data;
     }
 }
-
 static class Graph {
 
     ArrayList<LinkedList<Node>> alist;
@@ -146,4 +139,55 @@ static class Graph {
             System.out.println();
         }
     }
+}
+void UserInputRecognition(){
+    try (Scanner scan = new Scanner(System.in, StandardCharsets.UTF_8)) {
+        System.out.println("Input something");
+        char a1 = scan.next().charAt(0);
+        /* conversion from char to String to int */
+        /* in case of error(character or symbol), it will recognize that it is not a number */
+        try{
+            /* for negative */
+            if(a1 == '-'){
+                System.out.println("You inserted something lower than 0");
+            }
+            else{
+                System.out.println("The program is taking " + a1);
+                String a2 = String.valueOf(a1);
+                int b = Integer.parseInt(a2); /* the error happens here */
+                /* for numbers */
+                if(check_int(b)){
+                    System.out.println("You inserted a number between 0-9");
+                }
+                else{
+                    System.out.println("You inserted something bigger than 0-9");
+                }
+            }
+        }
+        catch(NumberFormatException NFE){
+            /* for characters or symbols */
+            if(Character.isUpperCase(a1)){
+                if(check_cap_eng(a1,'A','Z')){
+                    System.out.println("You inserted a UpperCase English Character");
+                }
+            }
+            else if(Character.isLowerCase(a1)){
+                if( check_lower_eng(a1,'a','z')){
+                    System.out.println("You inserted a LowerCase English Character");
+                }
+            }
+            else{
+                System.out.println("You inserted a symbol");
+            }
+        }
+    }
+}
+public static boolean check_int(int b){
+    return 0<=b && b<=9;
+}
+public static boolean check_cap_eng(char a, char b, char c){
+    return b<=a && a<=c;
+}
+public static boolean check_lower_eng(char a, char b, char c){
+    return b<=a && a<=c;
 }
