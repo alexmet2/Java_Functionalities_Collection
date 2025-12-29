@@ -37,6 +37,8 @@ void main() throws IOException {
     new LinearSearch1();
     System.out.println("Linked List VS ArrayList");
     new LinkedListVSArrayList();
-    System.out.println("Stack Method");
+    System.out.println("Stack");
     new StackMethod();
+    System.out.println("Dynamic Array");
+    new DynamicArrayMethod();
 }
