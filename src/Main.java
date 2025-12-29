@@ -3,6 +3,8 @@ void main() {
     Map_Collect();
     System.out.println("Reduce");
     Reduce();
+    System.out.println("Parallel");
+    Parallel();
 }
 
 void Map_Collect(){
@@ -22,4 +24,9 @@ void Reduce(){
     System.out.println(sum);
     System.out.println(sum1);
     System.out.println(sum2);
+}
+
+void Parallel(){
+    IntStream num = IntStream.range(1, 10);
+    num.parallel().forEach(System.out::println);
 }
