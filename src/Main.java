@@ -1,10 +1,17 @@
-void main() {
+import java.net.InetAddress;
+import java.net.URL;
+import static java.net.InetAddress.getLocalHost;
+
+
+void main() throws MalformedURLException, UnknownHostException {
     System.out.println("Map Collect");
     Map_Collect();
     System.out.println("Reduce");
     Reduce();
     System.out.println("Parallel");
     Parallel();
+    System.out.println("InetAddress");
+    InetAddress();
 }
 
 void Map_Collect(){
@@ -29,4 +36,15 @@ void Reduce(){
 void Parallel(){
     IntStream num = IntStream.range(1, 10);
     num.parallel().forEach(System.out::println);
+}
+
+void InetAddress() throws UnknownHostException, MalformedURLException {
+    InetAddress address = getLocalHost();
+    URL web = new URL("https://el-gr.facebook.com/");
+    System.out.println("Protocol " + web.getProtocol());
+    System.out.println("Host " + web.getHost());
+    System.out.println("Port " + web.getPort());
+    System.out.println("Authority " + web.getAuthority());
+    System.out.println("Query " + web.getAuthority());
+    System.out.println(address.getHostAddress());
 }
