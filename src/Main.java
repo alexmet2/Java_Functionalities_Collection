@@ -47,4 +47,6 @@ void main() throws IOException {
     new QueueMethod();
     System.out.println("Priority Queue");
     new PriorityQueueMethod();
+    System.out.println("Java JFrame JPanel");
+    new JavaJFrameJPanel();
 }
