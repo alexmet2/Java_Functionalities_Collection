@@ -3,7 +3,7 @@ import java.net.URL;
 import static java.net.InetAddress.getLocalHost;
 
 
-void main() throws MalformedURLException, UnknownHostException {
+void main() throws IOException {
     System.out.println("Map Collect");
     Map_Collect();
     System.out.println("Reduce");
@@ -12,6 +12,8 @@ void main() throws MalformedURLException, UnknownHostException {
     Parallel();
     System.out.println("InetAddress");
     InetAddress();
+    System.out.println("InputStreamReader");
+    InputStreamReader();
 }
 
 void Map_Collect(){
@@ -47,4 +49,15 @@ void InetAddress() throws UnknownHostException, MalformedURLException {
     System.out.println("Authority " + web.getAuthority());
     System.out.println("Query " + web.getAuthority());
     System.out.println(address.getHostAddress());
+}
+
+void InputStreamReader() throws IOException {
+    URL webpage = new URL("https://el-gr.facebook.com/");
+    InputStreamReader  inp = new InputStreamReader(webpage.openStream());
+    try (BufferedReader in = new BufferedReader(inp)) {
+        String selida;
+        while(null!=(selida = in.readLine())){
+            System.out.println(selida);
+        }
+    }
 }
