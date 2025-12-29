@@ -43,4 +43,6 @@ void main() throws IOException {
     new StackMethod();
     System.out.println("Dynamic Array");
     new DynamicArrayMethod();
+    System.out.println("Queue");
+    new QueueMethod();
 }
